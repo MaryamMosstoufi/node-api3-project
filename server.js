@@ -8,6 +8,10 @@ server.get('/', (req, res) => {
 
 //custom middleware
 
-function logger(req, res, next) {}
+function logger(req, res, next) {
+  let timeStamp = new Date().toLocaleDateString;
+  console.log(`Method: ${req.method} / URL: ${req.url} / Time: ${timeStamp}`);
+  next();
+}
 
 module.exports = server;
